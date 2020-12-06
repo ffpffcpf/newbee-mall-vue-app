@@ -26,9 +26,9 @@
     <nav-bar></nav-bar>
     <swiper :list="swiperList"></swiper>
     <div class="category-list">
-      <div v-for="item in categoryList" v-bind:key="item.categoryId">
+      <div v-for="item in categoryList" :key="item.categoryId">
         <img :src="item.imgUrl">
-        <span>{{item.name}}</span>
+        <span key="lang">{{getName(item.name)}}</span>
       </div>
     </div>
     <div class="good">
@@ -90,23 +90,23 @@ export default {
       recommends: [],
       categoryList: [
         {
-          name: '企业简介',
+          name: 'quickEntry.companyProfile',
           imgUrl: '//s.yezgea02.com/1604041127880/%E8%B6%85%E5%B8%82%402x.png',
           categoryId: 100001
         }, {
-          name: '商品特色',
+          name: 'quickEntry.productFeature',
           imgUrl: '//s.yezgea02.com/1604041127880/9.9%402x.png',
           categoryId: 100007
         }, {
-          name: "潮流产品",
+          name: 'quickEntry.trendyGood',
           imgUrl: '//s.yezgea02.com/1604041127880/%E9%A2%86%E5%88%B8%402x.png',
           categoryId: 100008
         }, {
-          name: '热销产品',
+          name: 'hotSell',
           imgUrl: '//s.yezgea02.com/1604041127880/%E7%9C%81%E9%92%B1%402x.png',
           categoryId: 100009
         }, {
-          name: '促销活动',
+          name: 'quickEntry.promotions',
           imgUrl: '//s.yezgea02.com/1604041127880/%E5%85%A8%E9%83%A8%402x.png',
           categoryId: 100010
         }
@@ -135,6 +135,10 @@ export default {
     Toast.clear()
   },
   methods: {
+    getName(name) {
+      let s = 'lang.home.' + name
+      return this.$t(s)
+    },
     pageScroll() {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       scrollTop > 100 ? this.headerScroll = true : this.headerScroll = false
