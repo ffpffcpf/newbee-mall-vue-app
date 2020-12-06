@@ -15,11 +15,23 @@ import store from './store'
 import { prefix } from '@/common/js/utils'
 import { Divider, Popup, Overlay, Loading, Dialog, ContactCard, Form, AddressEdit, AddressList, Field, CellGroup, Cell, SwipeCell, Icon, Stepper, Card, Checkbox, CheckboxGroup, Button, Swipe, SwipeItem, PullRefresh, List, Tab, Tabs, GoodsAction, GoodsActionIcon, GoodsActionButton, SubmitBar, Toast } from 'vant'
 import 'lib-flexible/flexible'
+import VueI18n from 'vue-i18n'
 
+Vue.use(VueI18n)
 Vue.use(Divider).use(Popup).use(Overlay).use(Loading).use(Dialog).use(Toast).use(ContactCard).use(Form).use(AddressEdit).use(AddressList).use(Field).use(CellGroup).use(Cell).use(SwipeCell).use(Icon).use(Stepper).use(Card).use(Button).use(Swipe).use(SwipeItem).use(PullRefresh).use(List).use(Tab).use(Tabs).use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton).use(SubmitBar).use(Checkbox).use(CheckboxGroup)
 Vue.config.productionTip = false
 
+const i18n = new VueI18n({
+  locale:'zh-CN',
+  messages: {
+    'zh-CN': require('./local/lang/zh'),
+    'en-US': require('./local/lang/en'),
+    'ca-ca': require('./local/lang/ca')
+  }
+})
+
 new Vue({
+  i18n,
   router,
   store,
   render: h => h(App)

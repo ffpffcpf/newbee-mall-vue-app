@@ -13,19 +13,19 @@
     <ul class="nav-list">
       <router-link tag="li" class="nav-list-item active" to="home">
         <i class="nbicon nblvsefenkaicankaoxianban-1"></i>
-        <span>首页</span>
+        <span>{{ $t('lang.navBar.home') }}</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="category">
         <i class="nbicon nbfenlei"></i>
-        <span>分类</span>
+        <span>{{ $t('lang.navBar.category') }}</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="cart">
         <van-icon  name="shopping-cart-o" :info="!count ? '' : count" />
-        <span>购物车</span>
+        <span>{{ $t('lang.navBar.favorites') }}</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="user">
         <i class="nbicon nblvsefenkaicankaoxianban-"></i>
-        <span>我的</span>
+        <span>{{ $t('lang.navBar.profile') }}</span>
       </router-link>
     </ul>
   </div>

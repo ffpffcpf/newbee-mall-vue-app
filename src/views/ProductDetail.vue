@@ -25,7 +25,7 @@
         </div>
         <div class="product-desc">免邮费 顺丰快递</div>
         <div class="product-price">
-          <span>¥{{ detail.sellingPrice }}</span>
+          <span>${{ detail.sellingPrice }}</span>
           <!-- <span>库存203</span> -->
         </div>
       </div>

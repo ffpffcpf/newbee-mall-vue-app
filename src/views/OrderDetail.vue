@@ -31,7 +31,7 @@
     <div class="order-price">
       <div class="price-item">
         <label>商品金额：</label>
-        <span>¥ {{ detail.totalPrice }}</span>
+        <span>$ {{ detail.totalPrice }}</span>
       </div>
       <div class="price-item">
         <label>配送方式：</label>

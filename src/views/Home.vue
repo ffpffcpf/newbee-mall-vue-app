@@ -13,10 +13,11 @@
     <header class="home-header wrap" :class="{'active' : headerScroll}">
         <router-link tag="i" to="./category"><i class="nbicon nbmenu2"></i></router-link>
         <div class="header-search">
-            <span class="app-name">新蜂商城</span>
-            <i class="iconfont icon-search"></i>
-            <router-link tag="span" class="search-title" to="./product-list?from=home">山河无恙，人间皆安</router-link>
+            <router-link tag="span" class="search-title" to="./product-list?from=home">兄弟数码商城</router-link>
         </div>
+        <span class="lang-span" v-if="lang!='en-US'" @click="changeLang('en-US')">English</span>
+        <span class="lang-span" v-if="lang!='ca-ca'" @click="changeLang('ca-ca')">ជនជាតិខ្មែរ</span>
+        <span class="lang-span" v-if="lang!='zh-CN'" @click="changeLang('zh-CN')">中文</span>
         <router-link class="login" tag="span" to="./login" v-if="!isLogin">登录</router-link>
         <router-link class="login" tag="span" to="./user" v-else>
           <van-icon name="manager-o" />
@@ -31,37 +32,37 @@
       </div>
     </div>
     <div class="good">
-      <header class="good-header">新品上线</header>
+      <header class="good-header">{{ $t('lang.home.newArrival') }}</header>
       <div class="good-box">
         <div class="good-item" v-for="item in newGoodses" :key="item.goodsId" @click="goToDetail(item)">
           <img :src="prefix(item.goodsCoverImg)" alt="">
           <div class="good-desc">
             <div class="title">{{ item.goodsName }}</div>
-            <div class="price">¥ {{ item.sellingPrice }}</div>
+            <div class="price">$ {{ item.sellingPrice }}</div>
           </div>
         </div>
       </div>
     </div>
     <div class="good">
-      <header class="good-header">热门商品</header>
+      <header class="good-header">{{ $t('lang.home.hotSell') }}</header>
       <div class="good-box">
         <div class="good-item" v-for="item in hots" :key="item.goodsId" @click="goToDetail(item)">
           <img :src="prefix(item.goodsCoverImg)" alt="">
           <div class="good-desc">
             <div class="title">{{ item.goodsName }}</div>
-            <div class="price">¥ {{ item.sellingPrice }}</div>
+            <div class="price">$ {{ item.sellingPrice }}</div>
           </div>
         </div>
       </div>
     </div>
     <div class="good" :style="{ paddingBottom: '100px'}">
-      <header class="good-header">最新推荐</header>
+      <header class="good-header">{{ $t('lang.home.recommendGoods') }}</header>
       <div class="good-box">
         <div class="good-item" v-for="item in recommends" :key="item.goodsId" @click="goToDetail(item)">
           <img :src="prefix(item.goodsCoverImg)" alt="">
           <div class="good-desc">
             <div class="title">{{ item.goodsName }}</div>
-            <div class="price">¥ {{ item.sellingPrice }}</div>
+            <div class="price">$ {{ item.sellingPrice }}</div>
           </div>
         </div>
       </div>
@@ -80,6 +81,7 @@ export default {
   name: 'home',
   data() {
     return {
+      lang: "zh-CN",
       swiperList: [],
       isLogin: false,
       headerScroll: false,
@@ -87,47 +89,27 @@ export default {
       newGoodses: [],
       recommends: [],
       categoryList: [
-          {
-            name: '新蜂超市',
-            imgUrl: '//s.weituibao.com/1583585285461/cs.png',
-            categoryId: 100001
-          }, {
-            name: '新蜂服饰',
-            imgUrl: '//s.weituibao.com/1583585285468/fs.png',
-            categoryId: 100003
-          }, {
-            name: '全球购',
-            imgUrl: '//s.weituibao.com/1583585285470/qq.png',
-            categoryId: 100002
-          }, {
-            name: '新蜂生鲜',
-            imgUrl: '//s.weituibao.com/1583585285472/sx.png',
-            categoryId: 100004
-          }, {
-            name: '新蜂到家',
-            imgUrl: '//s.weituibao.com/1583585285467/dj.png',
-            categoryId: 100005
-          }, {
-            name: '充值缴费',
-            imgUrl: '//s.weituibao.com/1583585285465/cz.png',
-            categoryId: 100006
-          }, {
-            name: '9.9元拼',
-            imgUrl: '//s.weituibao.com/1583585285469/pt.png',
-            categoryId: 100007
-          }, {
-            name: '领劵',
-            imgUrl: '//s.weituibao.com/1583585285468/juan.png',
-            categoryId: 100008
-          }, {
-            name: '省钱',
-            imgUrl: '//s.weituibao.com/1583585285471/sq.png',
-            categoryId: 100009
-          }, {
-            name: '全部',
-            imgUrl: '//s.weituibao.com/1583585285470/qb.png',
-            categoryId: 100010
-          }
+        {
+          name: '企业简介',
+          imgUrl: '//s.yezgea02.com/1604041127880/%E8%B6%85%E5%B8%82%402x.png',
+          categoryId: 100001
+        }, {
+          name: '商品特色',
+          imgUrl: '//s.yezgea02.com/1604041127880/9.9%402x.png',
+          categoryId: 100007
+        }, {
+          name: "潮流产品",
+          imgUrl: '//s.yezgea02.com/1604041127880/%E9%A2%86%E5%88%B8%402x.png',
+          categoryId: 100008
+        }, {
+          name: '热销产品',
+          imgUrl: '//s.yezgea02.com/1604041127880/%E7%9C%81%E9%92%B1%402x.png',
+          categoryId: 100009
+        }, {
+          name: '促销活动',
+          imgUrl: '//s.yezgea02.com/1604041127880/%E5%85%A8%E9%83%A8%402x.png',
+          categoryId: 100010
+        }
       ],
     }
   },
@@ -142,7 +124,7 @@ export default {
     }
     window.addEventListener('scroll', this.pageScroll)
     Toast.loading({
-      message: '加载中...',
+      message: 'loading...',
       forbidClick: true
     });
     const { data } = await getHome()
@@ -159,6 +141,13 @@ export default {
     },
     goToDetail(item) {
       this.$router.push({ path: `product/${item.goodsId}` })
+    },
+    changeLang(lang) {
+      let existLang = new Set(['zh-CN', 'en-US', 'ca-ca'])
+      if (existLang.has(lang)) {
+        this.$i18n.locale = lang
+        this.lang = lang
+      }
     }
   }
 }
@@ -181,6 +170,9 @@ export default {
       .nbmenu2 {
         color: @primary;
       }
+      .lang-span{
+        color: @primary;
+      }
       &.active {
         background: @primary;
         .nbmenu2 {
@@ -189,32 +181,40 @@ export default {
         .login {
           color: #fff;
         }
+        .lang-span{
+          color: #fff;
+        }
       }
 
       .header-search {
           display: flex;
-          .wh(74%, 20px);
+          .wh(40%, 20px);
           line-height: 20px;
           margin: 10px 0;
           padding: 5px 0;
           color: #232326;
           background: rgba(255, 255, 255, .7);
           border-radius: 20px;
+          .lang-span {
+              color: #1baeae;
+              margin-right: 5px;
+          }
           .app-name {
               padding: 0 10px;
               color: @primary;
-              font-size: 20px;
+              font-size: 17.37px;
               font-weight: bold;
               border-right: 1px solid #666;
           }
           .icon-search {
-              padding: 0 10px;
+              padding: 0 5.5px;
               font-size: 17px;
           }
           .search-title {
-              font-size: 12px;
-              color: #666;
+              font-size: 17.37px;
+              color: #1baeae;
               line-height: 21px;
+              padding-left: 16.875px;
           }
       }
       .icon-iconyonghu{
