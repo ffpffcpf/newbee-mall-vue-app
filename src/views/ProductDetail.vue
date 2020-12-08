@@ -10,7 +10,7 @@
 
 <template>
   <div class="product-detail">
-    <s-header :name="'商品详情'"></s-header>
+    <s-header :name="$t('lang.productDetail.header')"></s-header>
     <div class="detail-content">
       <div class="detail-swipe-wrap">
         <van-swipe class="my-swipe" indicator-color="#1baeae">
@@ -23,7 +23,7 @@
         <div class="product-title">
           {{ detail.goodsName }}
         </div>
-        <div class="product-desc">免邮费 顺丰快递</div>
+        <div class="product-desc">{{ $t('lang.productDetail.expressDelivery') }}</div>
         <div class="product-price">
           <span>${{ detail.sellingPrice }}</span>
           <!-- <span>库存203</span> -->
@@ -31,19 +31,19 @@
       </div>
       <div class="product-intro">
         <ul>
-          <li>概述</li>
-          <li>参数</li>
-          <li>安装服务</li>
-          <li>常见问题</li>
+          <li>{{ $t('lang.productDetail.description') }}</li>
+          <li>{{ $t('lang.productDetail.parameter') }}</li>
+          <li>{{ $t('lang.productDetail.services') }}</li>
+          <!-- <li>{{ $t('lang.productDetail.commonQuestions') }}</li> -->
         </ul>
         <div class="product-content" v-html="detail.goodsDetailContent"></div>
       </div>
     </div>
     <van-goods-action>
-      <van-goods-action-icon icon="chat-o" text="客服" />
-      <van-goods-action-icon icon="cart-o" :info="!count ? '' : count" @click="goTo()" text="购物车"/>
-      <van-goods-action-button type="warning" @click="addCart" text="加入购物车" />
-      <van-goods-action-button type="danger" @click="goToCart" text="立即购买" />
+      <!-- <van-goods-action-icon icon="chat-o" text="客服" />
+      <van-goods-action-icon icon="cart-o" :info="!count ? '' : count" @click="goTo()" text="购物车"/> -->
+      <van-goods-action-button type="warning" @click="addCart" :text="$t('lang.productDetail.sendMessage')" />
+      <van-goods-action-button type="danger" @click="goToCart" :text="$t('lang.productDetail.addFavorites')"/>
     </van-goods-action>
   </div>
 </template>

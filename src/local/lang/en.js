@@ -27,5 +27,15 @@ export const lang = {
     "favorites": "My Favorites",
     "setting": "Setting",
     "aboutUs": "About Us"
+  },
+  "productDetail": {
+    "header": "Product Detail",
+    "expressDelivery": "Free delivery in Phnom Penh",
+    "description": "Description",
+    "parameter": "Parameter",
+    "services": "Services",
+    "commonQuestions": "Common Questions",
+    "sendMessage": "Send Message",
+    "addFavorites": "Add to Favorites"
   }
 }

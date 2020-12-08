@@ -27,5 +27,15 @@ export const lang = {
     "favorites": "ចំនូលចិត្",
     "setting": "ការកំណត់",
     "aboutUs": "អំពី​ពួក​យើង"
+  },
+  "productDetail": {
+    "header": "ពត៌មានអំពីផលិតផល",
+    "expressDelivery": "ដឹកជញ្ជូនដោយឥតគិតថ្លៃនៅភ្នំពេញ",
+    "description": "ការពិពណ៌នា",
+    "parameter": "ប៉ារ៉ាម៉ែត្រ",
+    "services": "សេវាកម្ម",
+    "commonQuestions": "សំណួរទូទៅ",
+    "sendMessage": "ផ្ញើ​សារ",
+    "addFavorites": "បន្ថែមទៅសំណព្"
   }
 }

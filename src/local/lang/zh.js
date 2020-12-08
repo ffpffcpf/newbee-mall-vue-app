@@ -27,5 +27,15 @@ export const lang = {
     "favorites": "收藏夹",
     "setting": "账号管理",
     "aboutUs": "关于我们"
+  },
+  "productDetail": {
+    "header": "商品详情",
+    "expressDelivery": "金边免费配送",
+    "description": "概述",
+    "parameter": "参数",
+    "services": "服务",
+    "commonQuestions": "常见问题",
+    "sendMessage": "留言",
+    "addFavorites": "收藏"
   }
 }
