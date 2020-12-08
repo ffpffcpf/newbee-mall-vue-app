@@ -15,5 +15,8 @@ export const lang = {
     "category": "ប្រភេទ",
     "favorites": "ចំណូលចិត្ត",
     "profile": "ទម្រង់"
+  },
+  "category": {
+    "searchPlaceHolder": "ស្វែងរកអ្វីដែលអ្នកចង់បាន"
   }
 }

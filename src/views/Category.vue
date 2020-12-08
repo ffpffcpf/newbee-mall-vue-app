@@ -15,7 +15,7 @@
         <i class="nbicon nbfanhui" @click="goHome"></i>
         <div class="header-search">
           <i class="nbicon nbSearch"></i>
-          <router-link tag="span" class="search-title" to="./product-list?from=category">全场50元起步</router-link>
+          <router-link tag="span" class="search-title" to="./product-list?from=category">{{ $t('lang.category.searchPlaceHolder') }}</router-link>
         </div>
         <i class="iconfont icon-More"></i>
       </header>

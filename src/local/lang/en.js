@@ -15,5 +15,8 @@ export const lang = {
     "category": "Category",
     "favorites": "Favorites",
     "profile": "Profile"
+  },
+  "category": {
+    "searchPlaceHolder": "find what you want!"
   }
 }

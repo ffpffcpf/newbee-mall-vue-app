@@ -15,5 +15,8 @@ export const lang = {
     "category": "分类",
     "favorites": "收藏夹",
     "profile": "我的"
+  },
+  "category": {
+    "searchPlaceHolder": "发现你的精彩！"
   }
 }
