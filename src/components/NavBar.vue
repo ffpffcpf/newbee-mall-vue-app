@@ -20,7 +20,7 @@
         <span>{{ $t('lang.navBar.category') }}</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="cart">
-        <van-icon  name="shopping-cart-o" :info="!count ? '' : count" />
+        <i class="iconfont iconshoucang"></i>
         <span>{{ $t('lang.navBar.favorites') }}</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="user">
