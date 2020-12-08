@@ -18,5 +18,14 @@ export const lang = {
   },
   "category": {
     "searchPlaceHolder": "find what you want!"
+  },
+  "profile": {
+    "header": "Profile",
+    "nickname": "Nickname",
+    "loginName": "Login Name",
+    "introduceSign": "Introduce Sign",
+    "favorites": "My Favorites",
+    "setting": "Setting",
+    "aboutUs": "About Us"
   }
 }

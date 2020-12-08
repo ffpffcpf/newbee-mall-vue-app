@@ -10,32 +10,32 @@
 
 <template>
   <div class="user-box">
-    <s-header :name="'我的'"></s-header>
+    <s-header :name="$t('lang.profile.header')"></s-header>
     <div class="user-info">
       <div class="info">
         <img src="//s.weituibao.com/1583583975067/user-graduate%20(1).png"/>
         <div class="user-desc">
-          <span>昵称：{{ user.nickName }}</span>
-          <span>登录名：{{ user.loginName }}</span>
-          <span class="name">个性签名：{{ user.introduceSign }}</span>
+          <span>{{ $t('lang.profile.nickname')}}：{{ user.nickName }}</span>
+          <span>{{ $t('lang.profile.loginName')}}：{{ user.loginName }}</span>
+          <span class="name">{{ $t('lang.profile.introduceSign') }}：{{ user.introduceSign }}</span>
         </div>
       </div>
     </div>
     <ul class="user-list">
       <li @click="goTo('order')">
-        <span>我的订单</span>
+        <span>{{ $t('lang.profile.favorites') }}</span>
         <van-icon name="arrow" />
       </li>
       <li @click="goTo('setting')">
-        <span>账号管理</span>
+        <span>{{ $t('lang.profile.setting') }}</span>
         <van-icon name="arrow" />
       </li>
-      <li @click="goTo('address?from=mine')">
+      <!-- <li @click="goTo('address?from=mine')">
         <span>地址管理</span>
         <van-icon name="arrow" />
-      </li>
+      </li> -->
       <li @click="goTo('about')">
-        <span>关于我们</span>
+        <span>{{$t('lang.profile.aboutUs')}}</span>
         <van-icon name="arrow" />
       </li>
     </ul>

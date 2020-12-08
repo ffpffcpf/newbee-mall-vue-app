@@ -18,5 +18,14 @@ export const lang = {
   },
   "category": {
     "searchPlaceHolder": "发现你的精彩！"
+  },
+  "profile": {
+    "header": "我的",
+    "nickname": "昵称",
+    "loginName": "登录名",
+    "introduceSign": "个性签名",
+    "favorites": "收藏夹",
+    "setting": "账号管理",
+    "aboutUs": "关于我们"
   }
 }

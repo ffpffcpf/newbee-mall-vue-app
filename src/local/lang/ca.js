@@ -18,5 +18,14 @@ export const lang = {
   },
   "category": {
     "searchPlaceHolder": "ស្វែងរកអ្វីដែលអ្នកចង់បាន"
+  },
+  "profile": {
+    "header": "ទម្រង់",
+    "nickname": "សម្មតិនាម",
+    "loginName": "ឈ្មោះ​ចូល",
+    "introduceSign": "ណែនាំសញ្ញា",
+    "favorites": "ចំនូលចិត្",
+    "setting": "ការកំណត់",
+    "aboutUs": "អំពី​ពួក​យើង"
   }
 }
