@@ -144,6 +144,14 @@ const routes = [
     },
     component: () => import(/* webpackChunkName: "create-order" */ '../views/CreateOrder.vue'),
   },
+  {
+    path: '/favorites',
+    name: 'favorites',
+    meta: {
+      index: 1
+    },
+    component: () => import(/* webpackChunkName: "favorites" */ '../views/Favorites.vue'),
+  }
 ]
 
 const router = new VueRouter({

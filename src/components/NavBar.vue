@@ -19,7 +19,7 @@
         <i class="nbicon nbfenlei"></i>
         <span>{{ $t('lang.navBar.category') }}</span>
       </router-link>
-      <router-link tag="li" class="nav-list-item" to="cart">
+      <router-link tag="li" class="nav-list-item" to="favorites">
         <i class="iconfont iconshoucang"></i>
         <span>{{ $t('lang.navBar.favorites') }}</span>
       </router-link>
