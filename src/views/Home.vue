@@ -123,18 +123,21 @@ export default {
       this.isLogin = true
     }
     window.addEventListener('scroll', this.pageScroll)
-    Toast.loading({
-      message: 'loading...',
-      forbidClick: true
-    });
-    const { data } = await getHome()
-    this.swiperList = data.carousels
-    this.newGoodses = data.newGoodses
-    this.hots = data.hotGoodses
-    this.recommends = data.recommendGoodses
-    Toast.clear()
+    this.getHomeData('')
   },
   methods: {
+    async getHomeData(lang) {
+      Toast.loading({
+        message: 'loading...',
+        forbidClick: true
+      });
+      const { data } = await getHome(lang)
+      this.swiperList = data.carousels
+      this.newGoodses = data.newGoodses
+      this.hots = data.hotGoodses
+      this.recommends = data.recommendGoodses
+      Toast.clear()
+    },
     getName(name) {
       let s = 'lang.home.' + name
       return this.$t(s)
@@ -146,12 +149,13 @@ export default {
     goToDetail(item) {
       this.$router.push({ path: `product/${item.goodsId}` })
     },
-    changeLang(lang) {
+    async changeLang(lang) {
       let existLang = new Set(['zh-CN', 'en-US', 'ca-ca'])
       if (existLang.has(lang)) {
         this.$i18n.locale = lang
         this.lang = lang
       }
+      this.getHomeData(this.$i18n.locale)
     }
   }
 }

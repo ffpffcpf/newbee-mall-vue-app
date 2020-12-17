@@ -37,5 +37,10 @@ export const lang = {
     "commonQuestions": "常见问题",
     "sendMessage": "留言",
     "addFavorites": "收藏"
+  },
+  "favorites": {
+    "header": "收藏夹",
+    "emptyFavorites": "空空如也",
+    "backToHome": "回到首页"
   }
 }

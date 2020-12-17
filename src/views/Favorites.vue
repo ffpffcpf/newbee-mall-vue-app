@@ -75,7 +75,7 @@ export default {
       this.$router.push({ path: `product/${item.goodsId}` })
     },
     async init() {
-      Toast.loading({ message: '加载中...', forbidClick: true });
+      Toast.loading({ message: 'loading...', forbidClick: true });
       const { data } = await getCart({ pageNumber: 1 })
       this.list = data
       this.result = data.map(item => item.cartItemId)
@@ -101,17 +101,6 @@ export default {
         }
       })
       Toast.clear();
-    },
-    async onSubmit() {
-      if (this.result.length == 0) {
-        Toast.fail('请选择商品进行结算')
-        return
-      }
-      const params = JSON.stringify(this.result)
-      // for(let i = 0; i < this.result.length; i++) {
-      //   await deleteCartItem(this.result[i])
-      // }
-      this.$router.push({ path: `create-order?cartItemIds=${params}` })
     },
     async deleteGood(id) {
       const { data } = await deleteCartItem(id)

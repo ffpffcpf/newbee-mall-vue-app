@@ -37,5 +37,10 @@ export const lang = {
     "commonQuestions": "សំណួរទូទៅ",
     "sendMessage": "ផ្ញើ​សារ",
     "addFavorites": "បន្ថែមទៅសំណព្"
+  },
+  "favorites": {
+    "header": "ចំណង់ចំណូលចិត្ត​របស់ខ្ញុំ",
+    "emptyFavorites": "នេះគឺទទេ",
+    "backToHome": "ទៅទំព័រដើម"
   }
 }

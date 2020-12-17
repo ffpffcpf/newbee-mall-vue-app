@@ -13,8 +13,11 @@ export function getDetail(id) {
   return axios.get(`/goods/detail/${id}`);
 }
 
-export function getCategory() {
-  return axios.get('/categories');
+export function getCategory(lang) {
+  return axios.get('/categories', 
+  {
+    headers: { 'lang': lang}
+  });
 }
 
 export function search(params) {

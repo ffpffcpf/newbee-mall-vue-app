@@ -74,7 +74,7 @@ export default {
   },
   async mounted() {
     this.setWrapHeight()
-    const { data } = await getCategory()
+    const { data } = await getCategory(this.$i18n.locale)
     this.categoryData = data
   },
   methods: {
@@ -157,10 +157,10 @@ export default {
         .boxSizing();
         background: #F8F8F8;
         li {
-          width: 100%;
-          height: 56px;
-          text-align: center;
-          line-height: 56px;
+          width: 100%;          
+          padding-top: 11.25px;
+          padding-bottom: 11.25px;
+          text-align: center;        
           font-size: 14px;
           &.active {
             color: @primary;

@@ -37,5 +37,10 @@ export const lang = {
     "commonQuestions": "Common Questions",
     "sendMessage": "Send Message",
     "addFavorites": "Add to Favorites"
+  },
+  "favorites": {
+    "header": "My Favorites",
+    "emptyFavorites": "Here is Empty!",
+    "backToHome": "Go To Home Page"
   }
 }

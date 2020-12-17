@@ -23,6 +23,7 @@ import AddressEdit from '../views/AddressEdit.vue'
 import Login from '../views/Login.vue'
 import About from '../views/About.vue'
 import CreateOrder from '../views/CreateOrder.vue'
+import Favorites from '../views/Favorites.vue'
 
 Vue.use(VueRouter)
 

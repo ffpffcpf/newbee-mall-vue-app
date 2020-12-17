@@ -9,7 +9,10 @@
 
 import axios from '../utils/axios'
 
-export function getHome(params) {
-  return axios.get('/index-infos');
+export function getHome(lang) {
+  return axios.get('/index-infos', 
+  {
+    headers: { 'lang': lang}
+  });
 }
 

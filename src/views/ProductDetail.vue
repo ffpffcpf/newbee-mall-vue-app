@@ -42,7 +42,7 @@
     <van-goods-action>
       <!-- <van-goods-action-icon icon="chat-o" text="客服" />
       <van-goods-action-icon icon="cart-o" :info="!count ? '' : count" @click="goTo()" text="购物车"/> -->
-      <van-goods-action-button type="warning" @click="addCart" :text="$t('lang.productDetail.sendMessage')" />
+      <van-goods-action-button type="warning" @click="sendMessage" :text="$t('lang.productDetail.sendMessage')" />
       <van-goods-action-button type="danger" @click="goToCart" :text="$t('lang.productDetail.addFavorites')"/>
     </van-goods-action>
   </div>
@@ -76,10 +76,10 @@ export default {
     goTo() {
       this.$router.push({ path: '/cart' })
     },
-    async addCart() {
-      const { data, resultCode } = await addCart({ goodsCount: 1, goodsId: this.detail.goodsId })
-      if (resultCode == 200 ) Toast.success('添加成功')
-      this.$store.dispatch('updateCart')
+    sendMessage() {
+      Toast.loading({ message: '修改中...', forbidClick: true });
+      window.location.href = 'fb://messaging?id=romi.chen.31'
+      // window.location.href = 'fb://profile?id=100044646157107'
     },
     async goToCart() {
       const { data, resultCode } = await addCart({ goodsCount: 1, goodsId: this.detail.goodsId })
