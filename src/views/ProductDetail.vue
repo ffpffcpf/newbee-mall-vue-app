@@ -66,7 +66,7 @@ export default {
   },
   async mounted() {
     const { id } = this.$route.params
-    const { data } = await getDetail(id)
+    const { data } = await getDetail(id, this.$i18n.locale)
     this.detail = data
   },
   methods: {

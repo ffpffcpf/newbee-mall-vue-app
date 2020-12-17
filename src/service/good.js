@@ -9,8 +9,11 @@
 
 import axios from '../utils/axios'
 
-export function getDetail(id) {
-  return axios.get(`/goods/detail/${id}`);
+export function getDetail(id, lang) {
+  return axios.get(`/goods/detail/${id}`,
+  {
+    headers: { 'lang': lang}
+  });
 }
 
 export function getCategory(lang) {
