@@ -26,13 +26,13 @@
     <nav-bar></nav-bar>
     <swiper :list="swiperList"></swiper>
     <div class="category-list">
-      <div v-for="item in categoryList" :key="item.categoryId">
-        <img :src="item.imgUrl">
-        <span key="lang">{{getName(item.name)}}</span>
+      <div v-for="item in categoryList" :key="item.categoryId" @click="hrefTo(item.href)">
+          <img :src="item.imgUrl">
+          <span key="lang">{{getName(item.name)}}</span>
       </div>
     </div>
     <div class="good">
-      <header class="good-header">{{ $t('lang.home.newArrival') }}</header>
+      <header class="good-header" id="newArrival">{{ $t('lang.home.newArrival') }}</header>
       <div class="good-box">
         <div class="good-item" v-for="item in newGoodses" :key="item.goodsId" @click="goToDetail(item)">
           <img :src="prefix(item.goodsCoverImg)" alt="">
@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="good">
-      <header class="good-header">{{ $t('lang.home.hotSell') }}</header>
+      <header class="good-header" id="hotSell">{{ $t('lang.home.hotSell') }}</header>
       <div class="good-box">
         <div class="good-item" v-for="item in hots" :key="item.goodsId" @click="goToDetail(item)">
           <img :src="prefix(item.goodsCoverImg)" alt="">
@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class="good" :style="{ paddingBottom: '100px'}">
-      <header class="good-header">{{ $t('lang.home.recommendGoods') }}</header>
+      <header class="good-header" id="recommendGoods">{{ $t('lang.home.recommendGoods') }}</header>
       <div class="good-box">
         <div class="good-item" v-for="item in recommends" :key="item.goodsId" @click="goToDetail(item)">
           <img :src="prefix(item.goodsCoverImg)" alt="">
@@ -92,23 +92,28 @@ export default {
         {
           name: 'quickEntry.companyProfile',
           imgUrl: '//s.yezgea02.com/1604041127880/%E8%B6%85%E5%B8%82%402x.png',
-          categoryId: 100001
+          categoryId: 100001,
+          href: '#newArrival'
         }, {
           name: 'quickEntry.productFeature',
           imgUrl: '//s.yezgea02.com/1604041127880/9.9%402x.png',
-          categoryId: 100007
+          categoryId: 100007,
+          href: '#newArrival'
         }, {
           name: 'quickEntry.trendyGood',
           imgUrl: '//s.yezgea02.com/1604041127880/%E9%A2%86%E5%88%B8%402x.png',
-          categoryId: 100008
+          categoryId: 100008,
+          href: '#recommendGoods'
         }, {
           name: 'hotSell',
           imgUrl: '//s.yezgea02.com/1604041127880/%E7%9C%81%E9%92%B1%402x.png',
-          categoryId: 100009
+          categoryId: 100009,
+          href: '#hotSell'
         }, {
           name: 'quickEntry.promotions',
           imgUrl: '//s.yezgea02.com/1604041127880/%E5%85%A8%E9%83%A8%402x.png',
-          categoryId: 100010
+          categoryId: 100010,
+          href: '#newArrival'
         }
       ],
     }
@@ -126,6 +131,9 @@ export default {
     this.getHomeData('')
   },
   methods: {
+    hrefTo(href) {
+      window.location.href = href
+    },
     async getHomeData(lang) {
       Toast.loading({
         message: 'loading...',
