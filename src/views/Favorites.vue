@@ -15,7 +15,7 @@
       <van-checkbox-group @change="groupChange" v-model="result" ref="checkboxGroup">
         <van-swipe-cell :right-width="50" v-for="(item, index) in list" :key="index">
           <div class="good-item" @click="goToDetail(item)">
-            <van-checkbox :name="item.cartItemId" />
+            <van-checkbox :name="item.favoritesId" />
             <div class="good-img"><img :src="prefix(item.goodsCoverImg)" alt=""></div>
             <div class="good-desc">
               <div class="good-title">
@@ -28,7 +28,7 @@
           </div>
         </van-swipe-cell>
       </van-checkbox-group>
-    </div>    
+    </div>  
     <div class="empty" v-if="!list.length">
       <van-icon name="smile-o" />
       <div class="title">{{$t('lang.favorites.emptyFavorites')}}</div>
@@ -42,7 +42,7 @@
 import { Toast } from 'vant'
 import navBar from '@/components/NavBar'
 import sHeader from '@/components/SimpleHeader'
-import { getCart, deleteCartItem, modifyCart } from '../service/cart'
+import { getFavorites} from '../service/favorites'
 export default {
   data() {
     return {
@@ -61,14 +61,6 @@ export default {
     this.init()
   },
   computed: {
-    total: function() {
-      let sum = 0
-      let _list = this.list.filter(item => this.result.includes(item.cartItemId))
-      _list.forEach(item => {
-        sum += item.goodsCount * item.sellingPrice
-      })
-      return sum
-    }
   },
   methods: {
     goToDetail(item) {
@@ -76,9 +68,9 @@ export default {
     },
     async init() {
       Toast.loading({ message: 'loading...', forbidClick: true });
-      const { data } = await getCart({ pageNumber: 1 })
-      this.list = data
-      this.result = data.map(item => item.cartItemId)
+      const { data } = await getFavorites({ pageNum: 1 })
+      this.list = data.list
+      this.result = data.map(item => item.favoritesId)
       Toast.clear()
     },
     goBack() {
@@ -86,26 +78,6 @@ export default {
     },
     goTo() {
       this.$router.push({ path: 'home' })
-    },
-    async onChange(value, detail) {
-      if (this.list.filter(item => item.cartItemId == detail.name)[0].goodsCount == value) return
-      Toast.loading({ message: '修改中...', forbidClick: true });
-      const params = {
-        cartItemId: detail.name,
-        goodsCount: value
-      }
-      const { data } = await modifyCart(params)
-      this.list.forEach(item => {
-        if (item.cartItemId == detail.name) {
-          item.goodsCount = value
-        }
-      })
-      Toast.clear();
-    },
-    async deleteGood(id) {
-      const { data } = await deleteCartItem(id)
-      this.$store.dispatch('updateCart')
-      this.init()
     },
     groupChange(result) {
       if (result.length == this.list.length) {
@@ -117,7 +89,7 @@ export default {
     },
     allCheck(value) {
       if (!this.checkAll) {
-        this.result = this.list.map(item => item.cartItemId)
+        this.result = this.list.map(item => item.favoritesId)
       } else {
         this.result = []
       }

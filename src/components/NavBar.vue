@@ -37,17 +37,17 @@
     mounted() {
       const token = getLocal('token')
       const path = this.$route.path
-      if (token && path != '/home') {
-        this.$store.dispatch('updateCart')
-      }
+      // if (token && path != '/home') {
+      //   this.$store.dispatch('updateCart')
+      // }
     },
     data() {
       return {}
     },
     computed: {
-      count () {
-        return this.$store.state.cartCount
-      }
+      // count () {
+      //   return this.$store.state.cartCount
+      // }
     }
   }
 </script>
