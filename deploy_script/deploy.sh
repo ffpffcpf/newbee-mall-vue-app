@@ -1,0 +1,1 @@
+scp -r dist root@121.36.98.177:/tmp/dist
